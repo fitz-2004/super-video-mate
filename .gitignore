@@ -1,0 +1,28 @@
+# deps
+node_modules/
+
+# build outputs
+dist/
+build/
+out/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# env / secrets
+.env
+.env.*
+*.key
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# caches
+.cache/
+.eslintcache
