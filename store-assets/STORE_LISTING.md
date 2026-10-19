@@ -36,10 +36,9 @@ Requires your own Anthropic API key (console.anthropic.com). Your questions go d
 
 **Screenshots (1280×800 JPEG), upload in this order** from `store-assets/screenshots/`:
 1. `1-frame-question-light.jpg` (asking about a slide with the frame attached)
-2. `2-remind-me.jpg` (explained later + reminder toast) *(to retake)*
+2. `2-remind-me.jpg` (explained later + reminder toast, YouTube dark theme)
 3. `3-insights.jpg` (Insights after clearing personal history) *(to retake)*
-4. `4-dark-mode.jpg` (any feature on an educational video, YouTube dark theme) *(to retake)*
-5. `5-settings.jpg`
+4. `5-settings.jpg`
 
 Put raw Mac screenshots in `store-assets/raw/` named `<n>-<name>.png`, then run `scripts/screenshots.sh`.
 
