@@ -37,3 +37,6 @@ learning-mate.zip
 
 # packaged store uploads (rebuild with: npm run package)
 store-assets/*.zip
+
+# raw screenshots (may show personal history); processed ones live in store-assets/screenshots/
+store-assets/raw/

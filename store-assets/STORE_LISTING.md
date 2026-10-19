@@ -34,12 +34,14 @@ Also included:
 
 Requires your own Anthropic API key (console.anthropic.com). Your questions go directly from your browser to Anthropic. The extension has no server and collects no data.
 
-**Screenshots (1280×800), upload in this order:**
-1. `1-ask-about-the-frame.png`
-2. `2-frame-capture-dark.png`
-3. `3-remind-me.png`
-4. `4-insights.png`
-5. `5-settings.png`
+**Screenshots (1280×800 JPEG), upload in this order** from `store-assets/screenshots/`:
+1. `1-frame-question-light.jpg` (asking about a slide with the frame attached)
+2. `2-remind-me.jpg` (explained later + reminder toast) *(to retake)*
+3. `3-insights.jpg` (Insights after clearing personal history) *(to retake)*
+4. `4-dark-mode.jpg` (any feature on an educational video, YouTube dark theme) *(to retake)*
+5. `5-settings.jpg`
+
+Put raw Mac screenshots in `store-assets/raw/` named `<n>-<name>.png`, then run `scripts/screenshots.sh`.
 
 **Icon:** `icons/icon128.png` from the zip
 
