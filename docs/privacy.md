@@ -1,6 +1,11 @@
+---
+title: Privacy Policy
+permalink: /privacy/
+---
+
 # Super Video Mate: Privacy Policy
 
-_Last updated: October 16, 2026_
+_Last updated: October 19, 2026_
 
 Super Video Mate is a Chrome extension that answers your questions about the YouTube video you are watching. This policy explains what data it uses and where that data goes.
 
@@ -37,4 +42,4 @@ The extension reads the caption track and basic video details of the YouTube pag
 
 ## Contact
 
-Questions about this policy: [your contact email]
+Questions about this policy: [fitzgeraldsh24@gmail.com](mailto:fitzgeraldsh24@gmail.com)
