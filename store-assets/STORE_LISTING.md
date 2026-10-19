@@ -42,6 +42,8 @@ Requires your own Anthropic API key (console.anthropic.com). Your questions go d
 
 Put raw Mac screenshots in `store-assets/raw/` named `<n>-<name>.png`, then run `scripts/screenshots.sh`.
 
+**Small promo tile (440×280):** `store-assets/promo/small-tile-440x280.jpg` (source: `small-tile.svg`)
+
 **Icon:** `icons/icon128.png` from the zip
 
 ---
