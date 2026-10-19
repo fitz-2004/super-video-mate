@@ -1,0 +1,9 @@
+.page { max-width: 540px; margin: 0 auto; padding: 48px 16px 64px; display: flex; flex-direction: column; gap: 12px; }
+.page > header { display: flex; gap: 14px; align-items: center; margin-bottom: 12px; }
+.page h1 { font: 500 26px/1.15 var(--display); }
+.logo {
+  display: grid; place-items: center; flex: none; width: 44px; height: 44px;
+  border-radius: 13px; background: var(--accent); color: var(--accent-ink);
+}
+.steps { padding-left: 20px; color: var(--ink-2); display: flex; flex-direction: column; gap: 6px; }
+code { font-size: 12.5px; font-weight: 800; padding: 1px 6px; border-radius: 6px; background: var(--accent-soft); color: var(--accent-text); }

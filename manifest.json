@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Super Video Mate",
+  "version": "2.0.0",
+  "description": "An AI tutor that watches YouTube with you — it always knows where you are, and points you back to the video first.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://api.anthropic.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["page-bridge.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["sidebar.html", "assets/*"],
+      "matches": ["https://www.youtube.com/*"]
+    }
+  ],
+  "options_page": "options.html",
+  "action": {
+    "default_title": "Toggle Super Video Mate"
+  },
+  "commands": {
+    "toggle-mate": {
+      "suggested_key": { "default": "Alt+M", "mac": "Alt+M" },
+      "description": "Show or hide Super Video Mate"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

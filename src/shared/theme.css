@@ -1,0 +1,220 @@
+/* Design tokens — calm coffee palette: latte cream by day, espresso by night, one
+   roasted-brown accent; verdict colors appear only as small dots. The sidebar follows YouTube's theme via data-theme; the
+   options page follows the OS. */
+@import '@fontsource-variable/fredoka/wght.css';
+@import '@fontsource-variable/nunito/wght.css';
+
+:root {
+  color-scheme: light;
+  --bg: #f7f1ea;
+  --surface: #fffcf8;
+  --surface-2: #efe6dc;
+  --line: #e6dacd;
+  --ink: #2e211b;
+  --ink-2: #6b5649;
+  --ink-3: #a8968a;
+  --accent: #8a5a3b;
+  --accent-ink: #fffaf4;
+  --accent-soft: #f1e3d5;
+  --accent-text: #7a4c2f;
+  --user-bg: #eedfcf;
+  --user-ink: #2e211b;
+  --warn-bg: #fbf0d9;
+  --warn-ink: #6e4f12;
+  --shadow: 0 1px 2px rgba(46, 33, 27, 0.05), 0 4px 16px rgba(46, 33, 27, 0.06);
+  /* verdict palette — validated categorical order (blue, orange, aqua, yellow, magenta) */
+  --v-later: #4f6bff;
+  --v-earlier: #ff7a1a;
+  --v-now: #12b886;
+  --v-assumed: #d99a00;
+  --v-beyond: #f0479a;
+  --v-other: #b8b1c0;
+  --radius: 16px;
+  --display: 'Fredoka Variable', 'Fredoka', ui-rounded, 'SF Pro Rounded', 'PingFang SC', system-ui, sans-serif;
+  --font: 'Nunito Variable', 'Nunito', ui-rounded, system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #1a1411;
+    --surface: #231b17;
+    --surface-2: #2d241f;
+    --line: #352a24;
+    --ink: #f4ebe3;
+    --ink-2: #c4b2a5;
+    --ink-3: #8a786c;
+    --accent: #d9a273;
+    --accent-ink: #1a1411;
+    --accent-soft: #3a2a20;
+    --accent-text: #e2b48a;
+    --user-bg: #3a2a20;
+    --user-ink: #f4ebe3;
+    --warn-bg: #352b16;
+    --warn-ink: #f2d38c;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.25);
+    --v-later: #6577ff;
+    --v-earlier: #e8661c;
+    --v-now: #139f70;
+    --v-assumed: #bf8700;
+    --v-beyond: #e54594;
+    --v-other: #6f6879;
+  }
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #1a1411;
+  --surface: #231b17;
+  --surface-2: #2d241f;
+  --line: #352a24;
+  --ink: #f4ebe3;
+  --ink-2: #c4b2a5;
+  --ink-3: #8a786c;
+  --accent: #d9a273;
+  --accent-ink: #1a1411;
+  --accent-soft: #3a2a20;
+  --accent-text: #e2b48a;
+  --user-bg: #3a2a20;
+  --user-ink: #f4ebe3;
+  --warn-bg: #352b16;
+  --warn-ink: #f2d38c;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.25);
+  --v-later: #6577ff;
+  --v-earlier: #e8661c;
+  --v-now: #139f70;
+  --v-assumed: #bf8700;
+  --v-beyond: #e54594;
+  --v-other: #6f6879;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { height: 100%; background: var(--bg); }
+body {
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font: 14.5px/1.6 var(--font);
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+button, input, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: default; opacity: 0.45; }
+a { color: var(--accent-text); font-weight: 700; text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+kbd {
+  padding: 0 6px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface-2);
+  font: 600 11px var(--font);
+  color: var(--ink-2);
+}
+
+/* shared controls */
+.muted { color: var(--ink-3); }
+.small { font-size: 12.5px; line-height: 1.55; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; }
+.card {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.card h2 { font: 500 15px var(--display); margin-bottom: 8px; }
+.card-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; }
+.card-head h2 { margin: 0; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: 12.5px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.chip:hover:not(:disabled) { background: var(--accent-soft); border-color: transparent; color: var(--accent-text); }
+.chip-on { background: var(--accent-soft); border-color: transparent; color: var(--accent-text); }
+
+.ghost-btn {
+  padding: 4px 9px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 700;
+}
+.ghost-btn:hover { background: var(--surface-2); color: var(--ink); }
+.primary-btn {
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 800;
+}
+
+/* settings */
+.settings { display: flex; flex-direction: column; gap: 12px; }
+.notice {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-weight: 700;
+}
+.key-row { display: flex; gap: 6px; margin-top: 10px; align-items: center; }
+.key-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg);
+  font-size: 13px;
+}
+.key-row input:focus { outline: none; border-color: var(--accent); }
+.options { display: flex; flex-direction: column; gap: 8px; }
+.option {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.option:hover { border-color: var(--ink-3); }
+.option.on { border-color: var(--accent); background: var(--accent-soft); }
+.option input { accent-color: var(--accent); margin-top: 5px; }
+.option-body { display: flex; flex-direction: column; gap: 1px; }
+.option-title { display: flex; align-items: baseline; gap: 8px; font: 500 15px var(--display); flex-wrap: wrap; }
+.price { color: var(--ink-3); font: 600 11px var(--font); }
+.segmented {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--surface-2);
+}
+.segmented button {
+  padding: 6px 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-2);
+  font: 500 14px var(--display);
+}
+.segmented button.on { background: var(--surface); color: var(--accent-text); box-shadow: var(--shadow); }
+.segmented + p { margin-top: 8px; }
+.toggle { display: flex; align-items: center; gap: 10px; padding: 5px 0; cursor: pointer; }
+.toggle input { accent-color: var(--accent); width: 16px; height: 16px; }
+.toggle + p { margin-top: 8px; }

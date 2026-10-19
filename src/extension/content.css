@@ -1,0 +1,140 @@
+/* Super Video Mate — styles injected into youtube.com */
+
+#svm-host {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--svm-w, 400px);
+  z-index: 2100; /* above masthead (2020), below YouTube dialogs */
+  display: none;
+  transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+#svm-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  color-scheme: normal;
+}
+html.svm-active #svm-host { display: block; }
+html.svm-open #svm-host { transform: none; }
+
+/* Make room for the sidebar instead of covering the page. */
+html.svm-open ytd-app { margin-right: var(--svm-w, 400px); }
+html.svm-open #masthead-container.ytd-app { width: calc(100% - var(--svm-w, 400px)); }
+
+/* Floating launcher shown while the sidebar is hidden */
+.svm-launcher {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  z-index: 2100;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px 10px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: #8a5a3b;
+  color: #fff;
+  font: 700 14px/1 ui-rounded, 'SF Pro Rounded', Nunito, system-ui, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(90, 58, 38, 0.35);
+  transition: transform 0.15s ease;
+}
+.svm-launcher:hover { transform: translateY(-2px); }
+.svm-launcher-dot { width: 7px; height: 7px; border-radius: 50%; background: #fff; }
+html.svm-active:not(.svm-open) .svm-launcher { display: inline-flex; }
+
+/* Question markers on the progress bar */
+#svm-markers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+}
+.svm-marker {
+  position: absolute;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  padding: 0;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #a8968a;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+.svm-marker:hover { transform: scale(1.5); }
+/* verdict palette, dark-surface steps (the bar sits on video) */
+.svm-v-later { background: #6577ff; }
+.svm-v-earlier { background: #e8661c; }
+.svm-v-now { background: #139f70; }
+.svm-v-assumed { background: #bf8700; }
+.svm-v-beyond { background: #e54594; }
+
+/* Overlays inside the player */
+#svm-overlay {
+  position: absolute;
+  left: 16px;
+  bottom: 64px;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  pointer-events: none;
+  font-family: ui-rounded, 'SF Pro Rounded', Nunito, system-ui, sans-serif;
+}
+.svm-toast {
+  pointer-events: auto;
+  width: min(340px, 60vw);
+  padding: 14px 16px 12px;
+  border-radius: 16px;
+  background: #fffcf8;
+  color: #2e211b;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  animation: svm-in 0.28s ease;
+}
+.svm-toast.svm-out { opacity: 0; transform: translateY(6px); transition: all 0.22s ease; }
+.svm-toast-kicker { font-size: 12px; font-weight: 700; color: #8a5a3b; }
+.svm-toast-text { margin-top: 4px; font-size: 14.5px; font-weight: 600; line-height: 1.45; }
+.svm-toast-actions { display: flex; gap: 8px; margin-top: 12px; }
+.svm-btn {
+  padding: 7px 14px;
+  border: 1px solid #e6dacd;
+  border-radius: 999px;
+  background: #fff;
+  color: #6b5649;
+  font: 700 13px/1 ui-rounded, 'SF Pro Rounded', Nunito, system-ui, sans-serif;
+  cursor: pointer;
+}
+.svm-btn:hover { background: #efe6dc; }
+.svm-btn-primary { border-color: transparent; background: #8a5a3b; color: #fff; }
+.svm-btn-primary:hover { background: #734a30; }
+
+.svm-return {
+  pointer-events: auto;
+  padding: 9px 15px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #2e211b;
+  font: 700 13px/1 ui-rounded, 'SF Pro Rounded', Nunito, system-ui, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  animation: svm-in 0.28s ease;
+}
+.svm-return:hover { background: #fff; }
+
+@keyframes svm-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #svm-host, .svm-toast, .svm-return { transition: none; animation: none; }
+}

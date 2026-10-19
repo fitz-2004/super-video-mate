@@ -26,3 +26,14 @@ pnpm-debug.log*
 # caches
 .cache/
 .eslintcache
+
+# local tooling / legacy
+.claude/settings.local.json
+.vercel/
+learning-mate.zip
+
+# private planning docs
+*.docx
+
+# packaged store uploads (rebuild with: npm run package)
+store-assets/*.zip

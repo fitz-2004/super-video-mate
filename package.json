@@ -1,0 +1,26 @@
+{
+  "name": "super-video-mate",
+  "version": "2.0.0",
+  "description": "AI tutor sidebar for YouTube that watches with you",
+  "scripts": {
+    "build": "vite build",
+    "watch": "vite build --watch --mode development",
+    "package": "node scripts/package.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@types/chrome": "^0.1.32",
+    "@vitejs/plugin-react": "^5.1.2",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "vite": "^7.3.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.133.0",
+    "@fontsource-variable/fredoka": "^5.3.0",
+    "@fontsource-variable/nunito": "^5.3.0"
+  }
+}
